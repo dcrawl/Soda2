@@ -133,7 +133,12 @@ runUnitTests = function
 		print "All tests passed.  Quality code!"
 	else
 		print errorCount + " error" + "s" * (errorCount!=1) + " found."
-	end if	
+	end if
+
+	print "About to call qa.assert false -- if this halts correctly, you should"
+	print "see NOTHING after this line."
+	qa.assert false, "deliberate failure, to test abort/exit"
+	print "*** BUG: execution continued past a failing assert. abort/exit is broken. ***"
 end function
 
 if globals == locals then runUnitTests

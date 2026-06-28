@@ -28,6 +28,7 @@ Display.NewDisplayOfMode = function(mode)
 	if mode == 0 then return new Display
 	if mode == 1 then return new SolidColorDisplay
 	if mode == 3 then return PixelDisplay.Make
+	if mode == 4 then return TileDisplay.Make
 	if mode == 5 then return SpriteDisplay.Make
 	print "Not implemented yet: display mode " + mode
 	exit
@@ -70,7 +71,7 @@ Display.install = function(slotNum)
 			break
 		end if
 	end for
-	disps.insert 0, d
+	disps.insert 0, self
 end function
 
 globals.display = function(index)
