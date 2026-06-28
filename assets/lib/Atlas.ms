@@ -1,0 +1,3 @@
+// Texture Atlas
+
+Atlas = {}

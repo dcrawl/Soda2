@@ -1,0 +1,25 @@
+# Build outputs
+build/
+build-web/
+dist/
+*.o
+*.a
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude stuff
+.claude
+memory
+
+# Symlinks (user must create these)
+MiniScript
+raygui
