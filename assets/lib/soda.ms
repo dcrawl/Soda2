@@ -12,7 +12,7 @@ end if
 
 import "importUtil"
 
-ensureImport ["Assets", "Display", "Image", "SolidColorDisplay", "PixelDisplay",
+ensureImport ["Display", "Image", "Assets", "SolidColorDisplay", "PixelDisplay",
   "SpriteDisplay", "mouse", "key", "color", "Sound", "Atlas", "Scene"]
 
 Display.Initialize
