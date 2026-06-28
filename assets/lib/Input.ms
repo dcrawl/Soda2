@@ -1,5 +1,5 @@
 import "importUtil"
-ensureImport ["mapUtil", "listUtil"]
+ensureImport ["mapUtil", "listUtil", "Events"]
 
 globals.InputAction = {}
 InputAction.enabled = false

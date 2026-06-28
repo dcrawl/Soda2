@@ -12,8 +12,8 @@ end if
 
 import "importUtil"
 
-ensureImport ["Display", "Image", "SolidColorDisplay", "PixelDisplay",
-  "SpriteDisplay", "mouse", "key", "color", "Sound"]
+ensureImport ["Assets", "Display", "Image", "SolidColorDisplay", "PixelDisplay",
+  "SpriteDisplay", "mouse", "key", "color", "Sound", "Atlas", "Scene"]
 
 Display.Initialize
 
@@ -23,6 +23,8 @@ update = function(beginEndRaylibDrawing = true)
 	if beginEndRaylibDrawing then raylib.EndDrawing
 	mouse.update
 	key.update
+	Input.update          // NEW: advance InputAction state machines, fire action signals
+	SceneManager.update   // NEW: tick whatever's active on the scene stack
 	Sound.UpdateAll
 end function
 

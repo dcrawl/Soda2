@@ -2,6 +2,9 @@
 // Possibly be able to pin and unpin assets so that even when ref count == 0, it wont unload 
 // until unpinned or forced to unload.
 
+import "importUtil"
+ensureImport ["Atlas"]
+
 // Asset Caching Singleton
 // Do not use with "new" operator
 Assets = {}
@@ -9,10 +12,21 @@ Assets.loadImageHandler = @file.loadImage
 Assets.loadSoundHandler = @file.loadSound
 Assets.images = {}
 Assets.sounds = {}
+Assets.atlases = {}
+
+Assets.loadAtlas = function(imagePath, jsonPath)
+	key = imagePath + "|" + jsonPath
+	a = self.atlases.get(key)
+	if a then return a
+	a = Atlas.Make(imagePath, jsonPath)
+	self.atlases[key] = a
+	return a
+end function
 
 Assets.clearAll = function
   self.images = {}
   self.sounds = {}
+  self.atlases = {}
 end function
 
 Assets.clearImage = function(path)
@@ -51,4 +65,9 @@ file.loadSound = function(path)
   return i
 end function
 
-return Assets
+if locals == globals then
+  // Test Assets
+
+else
+  return Assets
+end if
